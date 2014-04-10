@@ -40,6 +40,14 @@ public class Db4oHelper {
 	public static boolean insert(AbtractEntities entity) {
 		boolean isSuccess = true;
 		try {
+			// List<AbtractEntities> ls = selectAll(entity);
+			// if (ls.size() > 0) {
+			// // xoa tat,insert cai moi nhat
+			// for (AbtractEntities abtractEntities : ls) {
+			// System.out.println("Trung du lieu,xoa : " + abtractEntities);
+			// delete(abtractEntities);
+			// }
+			// }
 			getDb().store(entity);
 		} catch (Exception e) {
 			isSuccess = false;
@@ -76,7 +84,7 @@ public class Db4oHelper {
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
-		System.out.println("Lay tat ca du lieu cua class " + type.getClass().getSimpleName() + ": " + returnList);
+		System.out.println("Lay tat ca du lieu voi tieu chi " + type + ": " + returnList);
 		return returnList;
 	}
 

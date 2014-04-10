@@ -14,6 +14,16 @@ public class StartUp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		testHelperClass();
+	}
+	
+	public static void testObject(){
+		Db4oHelper.deleteDb();
+		Db4oHelper.closeDb();
+	}
+	
+	
+	public static void testHelperClass(){
 		Db4oHelper.deleteDb();
 
 		Benh benh1 = new Benh();
