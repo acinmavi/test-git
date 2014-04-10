@@ -3,6 +3,7 @@ package com.patient.management.system.startup;
 import java.util.List;
 
 import com.db4o.query.Predicate;
+import com.db4o.query.Query;
 import com.patient.management.system.dao.Db4oHelper;
 import com.patient.management.system.entities.Benh;
 import com.patient.management.system.entities.ViTri;
@@ -43,6 +44,21 @@ public class StartUp {
 		}
 		Db4oHelper.selectAll(new Benh());
 
+		Benh benh3 = new Benh();
+		benh3.setTenBenh("DEP");
+		Db4oHelper.insert(benh3);
+		Db4oHelper.selectAll(new Benh());
+		Query query = Db4oHelper.getDb().query();
+		query.constrain(Benh.class);
+		query.descend("tenBenh").constrain("DEP");
+		lsBenh = (List<Benh>) Db4oHelper.selectByQuery(query);
+		for (Benh benh : lsBenh) {
+			benh.setTenBenh(benh.getTenBenh() + "-Updated");
+			Db4oHelper.update(benh);
+		}
+		Db4oHelper.selectAll(new Benh());
+
+		System.out.println("===================================================");
 		ViTri vitri1 = new ViTri();
 		vitri1.setTenViTri("ViTriA");
 		Db4oHelper.insert(vitri1);
@@ -69,7 +85,20 @@ public class StartUp {
 			Db4oHelper.delete(viTri);
 		}
 		Db4oHelper.selectAll(new ViTri());
+		ViTri vitri3 = new ViTri();
+		vitri3.setTenViTri("ViTriC");
+		Db4oHelper.insert(vitri3);
+		Db4oHelper.selectAll(new ViTri());
 
+		query = Db4oHelper.getDb().query();
+		query.constrain(ViTri.class);
+		query.descend("tenViTri").orderDescending();
+		lsViTri = (List<ViTri>) Db4oHelper.selectByQuery(query);
+		for (ViTri viTri : lsViTri) {
+			viTri.setTenViTri(viTri.getTenViTri() + "-Updated");
+			Db4oHelper.update(viTri);
+		}
+		Db4oHelper.selectAll(new ViTri());
 		Db4oHelper.closeDb();
 	}
 }

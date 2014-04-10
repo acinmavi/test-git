@@ -8,6 +8,7 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.query.Predicate;
+import com.db4o.query.Query;
 import com.patient.management.system.entities.AbtractEntities;
 
 public class Db4oHelper {
@@ -103,6 +104,18 @@ public class Db4oHelper {
 			System.out.println(e.toString());
 		}
 		System.out.println("get data by predicate  :" + returnList);
+		return returnList;
+	}
+
+	public static List<? extends Object> selectByQuery(Query query) {
+		List<? extends Object> returnList = new ArrayList<Object>();
+		try {
+			returnList = new ArrayList<Object>(query.execute());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.toString());
+		}
+		System.out.println("get data by query  :" + returnList);
 		return returnList;
 	}
 }
