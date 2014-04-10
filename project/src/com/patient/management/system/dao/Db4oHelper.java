@@ -47,7 +47,7 @@ public class Db4oHelper {
 			System.out.println(e.toString());
 		}
 		if (isSuccess) {
-			System.out.println("Inserted successfully :" + entity);
+			System.out.println("Them moi thanh cong :" + entity);
 		}
 		return isSuccess;
 	}
@@ -62,7 +62,7 @@ public class Db4oHelper {
 			System.out.println(e.toString());
 		}
 		if (isSuccess) {
-			System.out.println("Updated successfully :" + entity);
+			System.out.println("Cap nhat thanh cong :" + entity);
 		}
 		return isSuccess;
 	}
@@ -76,7 +76,7 @@ public class Db4oHelper {
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
-		System.out.println("get all data  :" + returnList);
+		System.out.println("Lay tat ca du lieu cua class " + type.getClass().getSimpleName() + ": " + returnList);
 		return returnList;
 	}
 
@@ -90,7 +90,7 @@ public class Db4oHelper {
 			System.out.println(e.toString());
 		}
 		if (isSuccess) {
-			System.out.println("Deleted successfully :" + entity);
+			System.out.println("Xoa thanh cong :" + entity);
 		}
 		return isSuccess;
 	}
@@ -103,7 +103,7 @@ public class Db4oHelper {
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
-		System.out.println("get data by predicate  :" + returnList);
+		System.out.println("Du lieu sau khi dung Predicate  :" + returnList);
 		return returnList;
 	}
 
@@ -115,7 +115,7 @@ public class Db4oHelper {
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
-		System.out.println("get data by query  :" + returnList);
+		System.out.println("Du lieu sau khi dung Query :" + returnList);
 		return returnList;
 	}
 }
