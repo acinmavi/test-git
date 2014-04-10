@@ -7,7 +7,7 @@ import java.util.Date;
  * Bệnh án
  * @author dung.nguyen.trung
  */
-public class BenhAn {
+public class BenhAn  extends AbtractEntities{
 	
 	/** The kham benh. */
 	private KhamBenh khamBenh;

@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class này lưu trữ thông tin về vị trí mà bệnh nhân được khám bệnh
  * @author dung.nguyen.trung
  */
-public class ViTri {
+public class ViTri  extends AbtractEntities{
 	
 	/** The ten vi tri. */
 	private String tenViTri;

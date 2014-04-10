@@ -7,7 +7,7 @@ import java.util.Date;
  * class bệnh nhân lưu trữ tất cả các thông tin về bệnh nhân 
  * @author dung.nguyen.trung
  */
-public class BenhNhan {
+public class BenhNhan  extends AbtractEntities{
 	
 	/** The ho benh nhan. */
 	private String hoBenhNhan;

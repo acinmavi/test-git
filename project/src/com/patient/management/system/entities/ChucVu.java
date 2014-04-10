@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * class chức vụ lưu trữ thông tin về chức vụ của Nhân Viên
  * @author dung.nguyen.trung
  */
-public class ChucVu {
+public class ChucVu  extends AbtractEntities{
 	
 	/** The ten chuc vu. */
 	private String tenChucVu;

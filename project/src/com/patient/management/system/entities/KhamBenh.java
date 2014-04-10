@@ -10,7 +10,7 @@ import java.util.Date;
  *  các giá trị của các trường này được lấy tương ứng từ các bảng tương ứng
  * @author dung.nguyen.trung
  */
-public class KhamBenh {
+public class KhamBenh  extends AbtractEntities{
 	
 	/** The nhan vien. */
 	private NhanVien nhanVien;

@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class xã cùng với bảng huyện và bảng tỉnh lưu trữ thông tin địa chỉ của bệnh nhân cũng như nhân viên
  * @author dung.nguyen.trung
  */
-public class Xa {
+public class Xa  extends AbtractEntities{
 	
 	/** The ten xa. */
 	private String tenXa;

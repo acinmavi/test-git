@@ -7,7 +7,7 @@ import java.util.Date;
  * Class nhân viên lưu trữ tất cả thông tin về nhân viên (Bác sĩ)	
  * @author dung.nguyen.trung
  */
-public class NhanVien {
+public class NhanVien  extends AbtractEntities{
 	
 	/** The ho ten nv. */
 	private String hoTenNV;

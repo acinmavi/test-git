@@ -7,7 +7,7 @@ import java.util.List;
  * 
  * @author dung.nguyen.trung
  */
-public class Tinh {
+public class Tinh  extends AbtractEntities{
 
 	/** The ten tinh. */
 	private String tenTinh;

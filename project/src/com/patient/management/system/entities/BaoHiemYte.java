@@ -8,7 +8,7 @@ import java.util.Date;
  * Class Bảo hiểm y tế lưu thông tin về BHYT của các bệnh nhân có thẻ BHYT
  * @author dung.nguyen.trung
  */
-public class BaoHiemYte {
+public class BaoHiemYte extends AbtractEntities{
 	
 	/** The benh nhan. */
 	private BenhNhan benhNhan;

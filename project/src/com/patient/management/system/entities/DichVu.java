@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Class  dịch vụ lưu trữ những thông tin về những dịch vụ mà bệnh viện có
  * @author dung.nguyen.trung
  */
-public class DichVu {
+public class DichVu  extends AbtractEntities{
 	
 	/** The ten dich vu. */
 	private String tenDichVu;

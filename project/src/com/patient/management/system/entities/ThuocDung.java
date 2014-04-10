@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * thuốc dùng
  * @author dung.nguyen.trung
  */
-public class ThuocDung {
+public class ThuocDung  extends AbtractEntities{
 	
 	/** The kham benh. */
 	private KhamBenh khamBenh;

@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class chuyên môn lưu trữ thông tin về chuyên môn của nhân viên
  * @author dung.nguyen.trung
  */
-public class ChuyenMon {
+public class ChuyenMon  extends AbtractEntities{
 	
 	/** The ten chuyen mon. */
 	private String tenChuyenMon;

@@ -8,7 +8,7 @@ import java.util.List;
  * 
  * @author dung.nguyen.trung
  */
-public class Huyen {
+public class Huyen  extends AbtractEntities{
 
 	private List<Xa> dsXa;
 
