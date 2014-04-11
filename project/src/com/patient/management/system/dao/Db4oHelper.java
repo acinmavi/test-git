@@ -9,7 +9,7 @@ import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.query.Predicate;
 import com.db4o.query.Query;
-import com.patient.management.system.entities.AbtractEntities;
+import com.db4o.query.QueryComparator;
 
 public class Db4oHelper {
 	public static final String DB4O_DB_PATH = "C:\\Users\\Admin15\\Desktop\\checking\\cao-hoc\\CSDLHDT\\project\\object-orient-database-homework\\project\\db\\db40.db";
@@ -37,15 +37,15 @@ public class Db4oHelper {
 		}
 	}
 
-	public static boolean insert(AbtractEntities entity) {
+	public static boolean insert(Object entity) {
 		boolean isSuccess = true;
 		try {
-			// List<AbtractEntities> ls = selectAll(entity);
+			// List<Object> ls = selectAll(entity);
 			// if (ls.size() > 0) {
 			// // xoa tat,insert cai moi nhat
-			// for (AbtractEntities abtractEntities : ls) {
-			// System.out.println("Trung du lieu,xoa : " + abtractEntities);
-			// delete(abtractEntities);
+			// for (Object Object : ls) {
+			// System.out.println("Trung du lieu,xoa : " + Object);
+			// delete(Object);
 			// }
 			// }
 			getDb().store(entity);
@@ -60,7 +60,7 @@ public class Db4oHelper {
 		return isSuccess;
 	}
 
-	public static boolean update(AbtractEntities entity) {
+	public static boolean update(Object entity) {
 		boolean isSuccess = true;
 		try {
 			getDb().store(entity);
@@ -75,11 +75,11 @@ public class Db4oHelper {
 		return isSuccess;
 	}
 
-	public static List<AbtractEntities> selectAll(AbtractEntities type) {
-		List<AbtractEntities> returnList = new ArrayList<AbtractEntities>();
+	public static List<Object> selectAll(Object type) {
+		List<Object> returnList = new ArrayList<Object>();
 		try {
-			ObjectSet<AbtractEntities> result = getDb().queryByExample(type);
-			returnList = new ArrayList<AbtractEntities>(result);
+			ObjectSet<Object> result = getDb().queryByExample(type);
+			returnList = new ArrayList<Object>(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.toString());
@@ -88,7 +88,7 @@ public class Db4oHelper {
 		return returnList;
 	}
 
-	public static boolean delete(AbtractEntities entity) {
+	public static boolean delete(Object entity) {
 		boolean isSuccess = true;
 		try {
 			getDb().delete(entity);
@@ -103,10 +103,23 @@ public class Db4oHelper {
 		return isSuccess;
 	}
 
-	public static List<? extends AbtractEntities> selectByPredicate(Predicate<? extends AbtractEntities> predicate) {
-		List<? extends AbtractEntities> returnList = new ArrayList<AbtractEntities>();
+	public static List<? extends Object> selectByPredicate(Predicate<? extends Object> predicate) {
+		List<? extends Object> returnList = new ArrayList<Object>();
 		try {
-			returnList = new ArrayList<AbtractEntities>(getDb().query(predicate));
+			returnList = new ArrayList<Object>(getDb().query(predicate));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.toString());
+		}
+		System.out.println("Du lieu sau khi dung Predicate  :" + returnList);
+		return returnList;
+	}
+
+	public static List<? extends Object> selectByPredicate(Predicate<? extends Object> predicate,
+			QueryComparator queryComparator) {
+		List<? extends Object> returnList = new ArrayList<Object>();
+		try {
+			returnList = new ArrayList<Object>(getDb().query(predicate, queryComparator));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.toString());

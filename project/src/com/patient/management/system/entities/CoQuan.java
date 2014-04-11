@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class cơ quan lưu trữ thông tin về cơ quan mà những bệnh nhân có BHYT thuộc một cơ quan nào đó
  * @author dung.nguyen.trung
  */
-public class CoQuan  extends AbtractEntities{
+public class CoQuan{
 	
 	/** The ten co quan. */
 	private String tenCoQuan;

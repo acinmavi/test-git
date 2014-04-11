@@ -8,9 +8,7 @@ import java.util.List;
  * 
  * @author dung.nguyen.trung
  */
-public class Huyen  extends AbtractEntities{
-
-	private List<Xa> dsXa;
+public class Huyen{
 
 	/** The ten huyen. */
 	private String tenHuyen;
@@ -56,17 +54,10 @@ public class Huyen  extends AbtractEntities{
 		this.tinh = tinh;
 	}
 
-	public List<Xa> getDsXa() {
-		return dsXa;
-	}
-
-	public void setDsXa(List<Xa> dsXa) {
-		this.dsXa = dsXa;
-	}
 
 	@Override
 	public String toString() {
-		return "Huyen [dsXa=" + dsXa + ", tenHuyen=" + tenHuyen + ", tinh=" + tinh + "]";
+		return "Huyen [tenHuyen=" + tenHuyen + ", tinh=" + tinh + "]";
 	}
 
 }

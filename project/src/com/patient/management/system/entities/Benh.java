@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class này lưu trữ tất cả các bệnh hiện có
  * @author dung.nguyen.trung
  */
-public class Benh  extends AbtractEntities{
+public class Benh{
 	
 	/** The ten benh. */
 	private String tenBenh;

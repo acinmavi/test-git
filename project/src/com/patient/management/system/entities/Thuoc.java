@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * 
  * @author dung.nguyen.trung
  */
-public class Thuoc  extends AbtractEntities{
+public class Thuoc{
 	
 	/** The ten thuoc. */
 	private String tenThuoc;

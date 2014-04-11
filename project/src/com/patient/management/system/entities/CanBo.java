@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class cán bộ là thực thể chuyên biệt hóa của thực thể bảo hiểm y tế thuộc cơ quan nào đó
  * @author dung.nguyen.trung
  */
-public class CanBo  extends AbtractEntities{
+public class CanBo{
 	
 	/** The benh nhan. */
 	private BenhNhan benhNhan;

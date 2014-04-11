@@ -9,7 +9,7 @@ import java.util.Date;
  * số lần tạm ứng, mỗi lần số tiền là bao nhiêu
  * @author dung.nguyen.trung
  */
-public class TamUng  extends AbtractEntities{
+public class TamUng{
 	
 	/** The so lan tam ung. */
 	private int soLanTamUng;

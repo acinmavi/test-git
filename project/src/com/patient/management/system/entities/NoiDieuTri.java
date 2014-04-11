@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Nơi điều trị là nơi mà bệnh nhân điều trị khi ở bệnh viện
  * @author dung.nguyen.trung
  */
-public class NoiDieuTri  extends AbtractEntities{
+public class NoiDieuTri{
 	
 	/** The ten noi dieu tri. */
 	private String tenNoiDieuTri;

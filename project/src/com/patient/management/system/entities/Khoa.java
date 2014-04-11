@@ -5,7 +5,7 @@ package com.patient.management.system.entities;
  * Class Khoa lưu trữ thông tin về khoa mà nhân viên (Bác sĩ) đang làm việc
  * @author dung.nguyen.trung
  */
-public class Khoa  extends AbtractEntities{
+public class Khoa {
 	
 	/** The ten khoa. */
 	private String tenKhoa;

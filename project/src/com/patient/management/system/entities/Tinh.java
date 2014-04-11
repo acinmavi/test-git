@@ -7,19 +7,10 @@ import java.util.List;
  * 
  * @author dung.nguyen.trung
  */
-public class Tinh  extends AbtractEntities{
+public class Tinh{
 
 	/** The ten tinh. */
 	private String tenTinh;
-	private List<Huyen> dsHuyen;
-
-	public List<Huyen> getDsHuyen() {
-		return dsHuyen;
-	}
-
-	public void setDsHuyen(List<Huyen> dsHuyen) {
-		this.dsHuyen = dsHuyen;
-	}
 
 	/**
 	 * Gets the ten tinh.
