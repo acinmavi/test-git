@@ -49,13 +49,14 @@ public class Db4oHelper {
 			// }
 			// }
 			getDb().store(entity);
+			getDb().commit();
 		} catch (Exception e) {
 			isSuccess = false;
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
 		if (isSuccess) {
-			System.out.println("Them moi thanh cong :" + entity);
+			System.out.println("Them moi thanh cong :" + entity.getClass().getSimpleName() + ":" + entity);
 		}
 		return isSuccess;
 	}
@@ -64,6 +65,7 @@ public class Db4oHelper {
 		boolean isSuccess = true;
 		try {
 			getDb().store(entity);
+			getDb().commit();
 		} catch (Exception e) {
 			isSuccess = false;
 			e.printStackTrace();
@@ -75,8 +77,8 @@ public class Db4oHelper {
 		return isSuccess;
 	}
 
-	public static List<Object> selectAll(Object type) {
-		List<Object> returnList = new ArrayList<Object>();
+	public static List<? extends Object> selectAll(Object type) {
+		List<? extends Object> returnList = new ArrayList<Object>();
 		try {
 			ObjectSet<Object> result = getDb().queryByExample(type);
 			returnList = new ArrayList<Object>(result);
@@ -84,7 +86,7 @@ public class Db4oHelper {
 			e.printStackTrace();
 			System.out.println(e.toString());
 		}
-		System.out.println("Lay tat ca du lieu voi tieu chi " + type + ": " + returnList);
+//		System.out.println("Lay tat ca du lieu voi tieu chi " + type + ": " + returnList);
 		return returnList;
 	}
 
@@ -92,6 +94,7 @@ public class Db4oHelper {
 		boolean isSuccess = true;
 		try {
 			getDb().delete(entity);
+			getDb().commit();
 		} catch (Exception e) {
 			isSuccess = false;
 			e.printStackTrace();
