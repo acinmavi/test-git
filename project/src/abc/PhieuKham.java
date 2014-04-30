@@ -1,4 +1,4 @@
-package com.patient.management.system.entities;
+package abc;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,10 +12,7 @@ import java.util.Date;
  * @author dung.nguyen.trung
  */
 public class PhieuKham {
-	private abc.NhanVien NhanVien;
-	private abc.BenhNhan BenhNhan;
-	
-	
+
 	/** The nhan vien. */
 	private NhanVien nhanVien;
 

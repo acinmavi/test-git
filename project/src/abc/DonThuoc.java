@@ -1,4 +1,4 @@
-package com.patient.management.system.entities;
+package abc;
 
 /**
  * * The Class ThuocDung.
@@ -6,19 +6,6 @@ package com.patient.management.system.entities;
  * @author dung.nguyen.trung
  */
 public class DonThuoc{
-	private abc.PhieuKham KhamBenh;
-	private abc.NhanVien NhanVien;
-	private abc.BenhNhan BenhNhan;
-	private abc.Benh Benh;
-	private abc.Thuoc Thuoc;
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/** The kham benh. */
 	private PhieuKham khamBenh;

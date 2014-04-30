@@ -1,5 +1,6 @@
-package com.patient.management.system.entities;
+package abc;
 
+import java.math.BigDecimal;
 
 /**
  * * The Class NoiDieuTri.
@@ -12,7 +13,7 @@ public class NoiDieuTri{
 	private String tenNoiDieuTri;
 	
 	/** The don gia. */
-	private String donGia;
+	private BigDecimal donGia;
 
 	/**
 	 * Gets the ten noi dieu tri.
@@ -38,7 +39,7 @@ public class NoiDieuTri{
 	 * 
 	 * @return the don gia
 	 */
-	public String getDonGia() {
+	public BigDecimal getDonGia() {
 		return donGia;
 	}
 
@@ -48,7 +49,7 @@ public class NoiDieuTri{
 	 * @param donGia
 	 *            the new don gia
 	 */
-	public void setDonGia(String donGia) {
+	public void setDonGia(BigDecimal donGia) {
 		this.donGia = donGia;
 	}
 

@@ -8,6 +8,12 @@ import java.util.Date;
  * @author dung.nguyen.trung
  */
 public class BenhAn{
+	private abc.DonThuoc DonThuoc ;
+	private abc.NhanVien NhanVien;
+	private abc.BenhNhan BenhNhan;
+	private abc.Benh Benh;
+	private abc.NoiDieuTri NoiDieuTri;
+	
 	
 	/** The kham benh. */
 	private DonThuoc donThuoc;

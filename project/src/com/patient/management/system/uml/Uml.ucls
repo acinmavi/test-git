@@ -4,7 +4,7 @@
   <class id="1" language="java" name="com.patient.management.system.entities.Thuoc" project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/Thuoc.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="930" y="1131" width="-1" height="-1"/>    
+    <position x="1087" y="176" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -15,7 +15,7 @@
     project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/PhieuKham.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="636" y="1110" width="-1" height="-1"/>    
+    <position x="909" y="1059" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -25,7 +25,7 @@
   <class id="3" language="java" name="com.patient.management.system.entities.Nguoi" project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/Nguoi.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="159" y="292" width="-1" height="-1"/>    
+    <position x="108" y="685" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -36,7 +36,7 @@
     project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/BenhNhan.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="520" y="614" width="-1" height="-1"/>    
+    <position x="552" y="880" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -47,7 +47,7 @@
     project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/DonThuoc.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="923" y="715" width="-1" height="-1"/>    
+    <position x="856" y="434" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
     project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/NoiDieuTri.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="419" y="169" width="-1" height="-1"/>    
+    <position x="101" y="219" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -69,7 +69,7 @@
     project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/NhanVien.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="169" y="729" width="-1" height="-1"/>    
+    <position x="145" y="1072" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -79,7 +79,7 @@
   <class id="8" language="java" name="com.patient.management.system.entities.BenhAn" project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/BenhAn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="744" y="247" width="-1" height="-1"/>    
+    <position x="392" y="410" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -89,7 +89,7 @@
   <class id="9" language="java" name="com.patient.management.system.entities.Benh" project="patient-management-system" 
     file="/patient-management-system/src/com/patient/management/system/entities/Benh.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position x="988" y="118" width="-1" height="-1"/>    
+    <position x="635" y="89" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -98,90 +98,90 @@
   </class>  
   <association id="10">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="11" name="thuoc"/>      
+      <attribute id="11" name="nhanVien"/>      
       <multiplicity id="12" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="13">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="14" name="noiDieuTri"/>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="14" name="nhanVien"/>      
       <multiplicity id="15" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="17" name="donThuoc"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="20" name="nhanVien"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
-    </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
+  <generalization id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="17">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="23" name="nhanVien"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="26" name="benh"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="18" name="benh"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="29" name="khamBenh"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="benhNhan"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+  <association id="20">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="21" name="benhNhan"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="35">    
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="benhNhan"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="36" name="benhNhan"/>      
+      <attribute id="27" name="noiDieuTri"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="30" name="benhNhan"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="33" name="donThuoc"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="36" name="thuoc"/>      
       <multiplicity id="37" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="38">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="39" name="benhNhan"/>      
+      <attribute id="39" name="khamBenh"/>      
       <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="41">    
-    <end type="SOURCE" refId="5" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="42" name="benh"/>      
       <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
@@ -189,7 +189,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="44">    
-    <end type="SOURCE" refId="2" navigable="false">      
+    <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="45" name="nhanVien"/>      
       <multiplicity id="46" minimum="0" maximum="1"/>    
     </end>    
@@ -197,7 +197,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="47">    
-    <end type="SOURCE" refId="4"/>    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
