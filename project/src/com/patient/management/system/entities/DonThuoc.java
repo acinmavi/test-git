@@ -5,10 +5,10 @@ package com.patient.management.system.entities;
  * thuốc dùng
  * @author dung.nguyen.trung
  */
-public class ThuocDung{
+public class DonThuoc{
 	
 	/** The kham benh. */
-	private KhamBenh khamBenh;
+	private PhieuKham khamBenh;
 	
 	/** The nhan vien. */
 	private NhanVien nhanVien;
@@ -18,9 +18,6 @@ public class ThuocDung{
 	
 	/** The benh. */
 	private Benh benh;
-	
-	/** The vi tri. */
-	private ViTri viTri;
 	
 	/** The thuoc. */
 	private Thuoc thuoc;
@@ -36,7 +33,7 @@ public class ThuocDung{
 	 * 
 	 * @return the kham benh
 	 */
-	public KhamBenh getKhamBenh() {
+	public PhieuKham getKhamBenh() {
 		return khamBenh;
 	}
 
@@ -46,7 +43,7 @@ public class ThuocDung{
 	 * @param khamBenh
 	 *            the new kham benh
 	 */
-	public void setKhamBenh(KhamBenh khamBenh) {
+	public void setKhamBenh(PhieuKham khamBenh) {
 		this.khamBenh = khamBenh;
 	}
 
@@ -108,25 +105,6 @@ public class ThuocDung{
 	}
 
 	/**
-	 * Gets the vi tri.
-	 * 
-	 * @return the vi tri
-	 */
-	public ViTri getViTri() {
-		return viTri;
-	}
-
-	/**
-	 * Sets the vi tri.
-	 * 
-	 * @param viTri
-	 *            the new vi tri
-	 */
-	public void setViTri(ViTri viTri) {
-		this.viTri = viTri;
-	}
-
-	/**
 	 * Gets the thuoc.
 	 * 
 	 * @return the thuoc
@@ -183,14 +161,13 @@ public class ThuocDung{
 		this.lieuDung = lieuDung;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "ThuocDung [khamBenh=" + khamBenh + ", nhanVien=" + nhanVien + ", benhNhan=" + benhNhan + ", benh="
-				+ benh + ", viTri=" + viTri + ", thuoc=" + thuoc + ", soLuong=" + soLuong + ", lieuDung=" + lieuDung
+		return "DonThuoc [khamBenh=" + khamBenh + ", nhanVien=" + nhanVien
+				+ ", benhNhan=" + benhNhan + ", benh=" + benh + ", thuoc="
+				+ thuoc + ", soLuong=" + soLuong + ", lieuDung=" + lieuDung
 				+ "]";
 	}
 
+	
 }

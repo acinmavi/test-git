@@ -10,7 +10,7 @@ import java.util.Date;
 public class BenhAn{
 	
 	/** The kham benh. */
-	private KhamBenh khamBenh;
+	private DonThuoc donThuoc;
 	
 	/** The nhan vien. */
 	private NhanVien nhanVien;
@@ -20,9 +20,6 @@ public class BenhAn{
 	
 	/** The benh. */
 	private Benh benh;
-	
-	/** The vi tri. */
-	private ViTri viTri;
 	
 	/** The noi dieu tri. */
 	private NoiDieuTri noiDieuTri;
@@ -35,25 +32,6 @@ public class BenhAn{
 	
 	/** The tinh trang ra. */
 	private String tinhTrangRa;
-
-	/**
-	 * Gets the kham benh.
-	 * 
-	 * @return the kham benh
-	 */
-	public KhamBenh getKhamBenh() {
-		return khamBenh;
-	}
-
-	/**
-	 * Sets the kham benh.
-	 * 
-	 * @param khamBenh
-	 *            the new kham benh
-	 */
-	public void setKhamBenh(KhamBenh khamBenh) {
-		this.khamBenh = khamBenh;
-	}
 
 	/**
 	 * Gets the nhan vien.
@@ -110,25 +88,6 @@ public class BenhAn{
 	 */
 	public void setBenh(Benh benh) {
 		this.benh = benh;
-	}
-
-	/**
-	 * Gets the vi tri.
-	 * 
-	 * @return the vi tri
-	 */
-	public ViTri getViTri() {
-		return viTri;
-	}
-
-	/**
-	 * Sets the vi tri.
-	 * 
-	 * @param viTri
-	 *            the new vi tri
-	 */
-	public void setViTri(ViTri viTri) {
-		this.viTri = viTri;
 	}
 
 	/**
@@ -207,14 +166,23 @@ public class BenhAn{
 		this.tinhTrangRa = tinhTrangRa;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
+	public DonThuoc getDonThuoc() {
+		return donThuoc;
+	}
+
+	public void setDonThuoc(DonThuoc donThuoc) {
+		this.donThuoc = donThuoc;
+	}
+
 	@Override
 	public String toString() {
-		return "BenhAn [khamBenh=" + khamBenh + ", nhanVien=" + nhanVien + ", benhNhan=" + benhNhan + ", benh=" + benh
-				+ ", viTri=" + viTri + ", noiDieuTri=" + noiDieuTri + ", ngayVao=" + ngayVao + ", ngayRa=" + ngayRa
+		return "BenhAn [donThuoc=" + donThuoc + ", nhanVien=" + nhanVien
+				+ ", benhNhan=" + benhNhan + ", benh=" + benh + ", noiDieuTri="
+				+ noiDieuTri + ", ngayVao=" + ngayVao + ", ngayRa=" + ngayRa
 				+ ", tinhTrangRa=" + tinhTrangRa + "]";
 	}
+
+	
 
 }

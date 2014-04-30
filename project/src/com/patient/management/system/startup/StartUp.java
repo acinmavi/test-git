@@ -6,7 +6,7 @@ import com.db4o.query.Predicate;
 import com.db4o.query.Query;
 import com.patient.management.system.dao.Db4oHelper;
 import com.patient.management.system.entities.Benh;
-import com.patient.management.system.entities.ViTri;
+import com.patient.management.system.entities.Thuoc;
 
 public class StartUp {
 
@@ -69,46 +69,46 @@ public class StartUp {
 		Db4oHelper.selectAll(new Benh());
 
 		System.out.println("===================================================");
-		ViTri vitri1 = new ViTri();
-		vitri1.setTenViTri("ViTriA");
-		Db4oHelper.insert(vitri1);
+		Thuoc Thuoc1 = new Thuoc();
+		Thuoc1.setTenThuoc("ThuocA");
+		Db4oHelper.insert(Thuoc1);
 
-		ViTri vitri2 = new ViTri();
-		vitri2.setTenViTri("ViTriB");
-		Db4oHelper.insert(vitri2);
-		Db4oHelper.selectAll(new ViTri());
+		Thuoc Thuoc2 = new Thuoc();
+		Thuoc2.setTenThuoc("ThuocB");
+		Db4oHelper.insert(Thuoc2);
+		Db4oHelper.selectAll(new Thuoc());
 
-		List<ViTri> lsViTri = (List<ViTri>) Db4oHelper.selectByPredicate(new Predicate<ViTri>() {
+		List<Thuoc> lsThuoc = (List<Thuoc>) Db4oHelper.selectByPredicate(new Predicate<Thuoc>() {
 
 			@Override
-			public boolean match(ViTri compare) {
-				return compare.getTenViTri().contains("B");
+			public boolean match(Thuoc compare) {
+				return compare.getTenThuoc().contains("B");
 			}
 		});
-		for (ViTri viTri : lsViTri) {
-			viTri.setTenViTri(viTri.getTenViTri() + "-Updated");
-			Db4oHelper.update(viTri);
+		for (Thuoc Thuoc : lsThuoc) {
+			Thuoc.setTenThuoc(Thuoc.getTenThuoc() + "-Updated");
+			Db4oHelper.update(Thuoc);
 		}
-		Db4oHelper.selectAll(new ViTri());
+		Db4oHelper.selectAll(new Thuoc());
 
-		for (ViTri viTri : lsViTri) {
-			Db4oHelper.delete(viTri);
+		for (Thuoc Thuoc : lsThuoc) {
+			Db4oHelper.delete(Thuoc);
 		}
-		Db4oHelper.selectAll(new ViTri());
-		ViTri vitri3 = new ViTri();
-		vitri3.setTenViTri("ViTriC");
-		Db4oHelper.insert(vitri3);
-		Db4oHelper.selectAll(new ViTri());
+		Db4oHelper.selectAll(new Thuoc());
+		Thuoc Thuoc3 = new Thuoc();
+		Thuoc3.setTenThuoc("ThuocC");
+		Db4oHelper.insert(Thuoc3);
+		Db4oHelper.selectAll(new Thuoc());
 
 		query = Db4oHelper.getDb().query();
-		query.constrain(ViTri.class);
-		query.descend("tenViTri").orderDescending();
-		lsViTri = (List<ViTri>) Db4oHelper.selectByQuery(query);
-		for (ViTri viTri : lsViTri) {
-			viTri.setTenViTri(viTri.getTenViTri() + "-Updated");
-			Db4oHelper.update(viTri);
+		query.constrain(Thuoc.class);
+		query.descend("tenThuoc").orderDescending();
+		lsThuoc = (List<Thuoc>) Db4oHelper.selectByQuery(query);
+		for (Thuoc Thuoc : lsThuoc) {
+			Thuoc.setTenThuoc(Thuoc.getTenThuoc() + "-Updated");
+			Db4oHelper.update(Thuoc);
 		}
-		Db4oHelper.selectAll(new ViTri());
+		Db4oHelper.selectAll(new Thuoc());
 		Db4oHelper.closeDb();
 	}
 }
