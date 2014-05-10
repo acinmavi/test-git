@@ -12,10 +12,6 @@ import java.util.Date;
  * @author dung.nguyen.trung
  */
 public class PhieuKham {
-	private abc.NhanVien NhanVien;
-	private abc.BenhNhan BenhNhan;
-	
-	
 	/** The nhan vien. */
 	private NhanVien nhanVien;
 

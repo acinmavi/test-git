@@ -1,15 +1,19 @@
 package com.patient.management.system.startup;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
 import com.patient.management.system.dao.Db4oHelper;
 import com.patient.management.system.entities.Benh;
+import com.patient.management.system.entities.BenhAn;
 import com.patient.management.system.entities.BenhNhan;
+import com.patient.management.system.entities.DonThuoc;
 import com.patient.management.system.entities.NhanVien;
 import com.patient.management.system.entities.NoiDieuTri;
+import com.patient.management.system.entities.PhieuKham;
 import com.patient.management.system.entities.Thuoc;
 
 public class QuanLyBenhNhan {
@@ -28,6 +32,9 @@ public class QuanLyBenhNhan {
 				System.out.println("3.Du lieu nhan vien");
 				System.out.println("4.Du lieu noi dieu tri");
 				System.out.println("5.Du lieu benh");
+				System.out.println("6.Du lieu phieu kham");
+				System.out.println("7.Du lieu don thuoc");
+				System.out.println("8.Du lieu benh an");
 				System.out.println("0.Exit");
 
 				String in = input.nextLine();
@@ -38,9 +45,15 @@ public class QuanLyBenhNhan {
 				} else if ("3".equalsIgnoreCase(in)) {
 					duLieuNhanVien();
 				} else if ("4".equalsIgnoreCase(in)) {
-					duLieuNhanVien();
+					duLieuNoiDieuTri();
 				} else if ("5".equalsIgnoreCase(in)) {
-					duLieuNhanVien();
+					duLieuBenh();
+				} else if ("6".equalsIgnoreCase(in)) {
+					duLieuPhieuKham();
+				} else if ("7".equalsIgnoreCase(in)) {
+					duLieuDonThuoc();
+				} else if ("8".equalsIgnoreCase(in)) {
+					duLieuBenhAn();
 				} else if ("0".equalsIgnoreCase(in)) {
 					System.out.println("Exiting....");
 					System.exit(0);
@@ -331,125 +344,360 @@ public class QuanLyBenhNhan {
 
 	}
 
-	//
-	// public static void duLieuHuyen() {
-	// while (true) {
-	// System.out.println("==========HUYEN==========");
-	// System.out.println("1.Liet ke danh sach huyen");
-	// System.out.println("2.Them moi huyen");
-	// System.out.println("3.Xoa du lieu huyen");
-	// System.out.println("4.Exit");
-	// System.out.println("==========HUYEN==========");
-	// String chon = input.nextLine();
-	// if ("1".equalsIgnoreCase(chon)) {
-	// List<Huyen> lsHuyen = (List<Huyen>) Db4oHelper.selectAll(new Huyen());
-	// System.out.println("Danh sach huyen:");
-	// for (int i = 0; i < lsHuyen.size(); i++) {
-	// System.out.println((i + 1) + "." + lsHuyen.get(i));
-	// }
-	// } else if ("2".equalsIgnoreCase(chon)) {
-	// System.out.println("Nhap du lieu huyen");
-	// System.out.println("Nhap ten huyen:");
-	// String tenHuyen = input.nextLine();
-	// Huyen huyen = new Huyen();
-	// huyen.setTenHuyen(tenHuyen);
-	// List<Thuoc> lsThuoc = (List<Thuoc>) Db4oHelper.selectAll(new Thuoc());
-	// System.out.println("Huyen nay la thuoc Thuoc :");
-	// for (int i = 0; i < lsThuoc.size(); i++) {
-	// System.out.println((i + 1) + "." + lsThuoc.get(i).getTenThuoc());
-	// }
-	// int Thuoc = 0;
-	// String temp = input.nextLine();
-	// try {
-	// Thuoc = Integer.parseInt(temp);
-	// } catch (NumberFormatException e) {
-	// System.out.println("Du lieu khong hop le.");
-	// return;
-	// }
-	// huyen.setThuoc(lsThuoc.get(Thuoc - 1));
-	// Db4oHelper.insert(huyen);
-	// } else if ("3".equalsIgnoreCase(chon)) {
-	// List<Huyen> lsHuyen = (List<Huyen>) Db4oHelper.selectAll(new Huyen());
-	// System.out.println("Chon huyen can xoa:");
-	// for (int i = 0; i < lsHuyen.size(); i++) {
-	// System.out.println((i + 1) + "." + lsHuyen.get(i).getTenHuyen());
-	// }
-	// int huyen = 0;
-	// String temp = input.nextLine();
-	// try {
-	// huyen = Integer.parseInt(temp);
-	// } catch (NumberFormatException e) {
-	// System.out.println("Du lieu khong hop le.");
-	// break;
-	// }
-	// Db4oHelper.delete(lsHuyen.get(huyen - 1));
-	// } else if ("4".equalsIgnoreCase(chon)) {
-	// break;
-	// } else {
-	// System.out.println("Du lieu khong hop le");
-	// }
-	// }
-	//
-	// }
-	//
-	// public static void duLieuXa() {
-	// while (true) {
-	// System.out.println("==========XA==========");
-	// System.out.println("1.Liet ke danh sach xa");
-	// System.out.println("2.Them moi xa");
-	// System.out.println("3.Xoa du lieu xa");
-	// System.out.println("4.Exit");
-	// System.out.println("==========XA==========");
-	// String chon = input.nextLine();
-	// if ("1".equalsIgnoreCase(chon)) {
-	// List<Xa> lsXa = (List<Xa>) Db4oHelper.selectAll(new Xa());
-	// System.out.println("Danh sach xa:");
-	// for (int i = 0; i < lsXa.size(); i++) {
-	// System.out.println((i + 1) + "." + lsXa.get(i));
-	// }
-	// } else if ("2".equalsIgnoreCase(chon)) {
-	// System.out.println("Nhap du lieu xa");
-	// System.out.println("Nhap ten xa:");
-	// String tenXa = input.nextLine();
-	// Xa xa = new Xa();
-	// xa.setTenXa(tenXa);
-	// List<Huyen> lsHuyen = (List<Huyen>) Db4oHelper.selectAll(new Huyen());
-	// System.out.println("xa nay la thuoc huyen :");
-	// for (int i = 0; i < lsHuyen.size(); i++) {
-	// System.out.println((i + 1) + "." + lsHuyen.get(i).getTenHuyen());
-	// }
-	// int huyen = 0;
-	// String temp = input.nextLine();
-	// try {
-	// huyen = Integer.parseInt(temp);
-	// } catch (NumberFormatException e) {
-	// System.out.println("Du lieu khong hop le.");
-	// return;
-	// }
-	// xa.setHuyen(lsHuyen.get(huyen - 1));
-	// Db4oHelper.insert(xa);
-	// } else if ("3".equalsIgnoreCase(chon)) {
-	// List<Xa> lsXa = (List<Xa>) Db4oHelper.selectAll(new Xa());
-	// System.out.println("Chon xa can xoa:");
-	// for (int i = 0; i < lsXa.size(); i++) {
-	// System.out.println((i + 1) + "." + lsXa.get(i).getTenXa());
-	// }
-	// int xa = 0;
-	// String temp = input.nextLine();
-	// try {
-	// xa = Integer.parseInt(temp);
-	// } catch (NumberFormatException e) {
-	// System.out.println("Du lieu khong hop le.");
-	// break;
-	// }
-	// Db4oHelper.delete(lsXa.get(xa - 1));
-	// } else if ("4".equalsIgnoreCase(chon)) {
-	// break;
-	// } else {
-	// System.out.println("Du lieu khong hop le");
-	// }
-	// }
-	//
-	// }
+	public static void duLieuPhieuKham() throws ParseException {
+		while (true) {
+			System.out.println("==========PhieuKham==========");
+			System.out.println("1.Liet ke danh sach PhieuKham");
+			System.out.println("2.Them moi PhieuKham");
+			System.out.println("3.Xoa du lieu PhieuKham");
+			System.out.println("4.Exit");
+			System.out.println("==========PhieuKham==========");
+			String chon = input.nextLine();
+			if ("1".equalsIgnoreCase(chon)) {
+				List<PhieuKham> lsPhieuKham = (List<PhieuKham>) Db4oHelper.selectAll(new PhieuKham());
+				System.out.println("Danh sach PhieuKham:");
+				for (int i = 0; i < lsPhieuKham.size(); i++) {
+					System.out.println((i + 1) + "." + lsPhieuKham.get(i));
+				}
+			} else if ("2".equalsIgnoreCase(chon)) {
+				System.out.println("Nhap du lieu PhieuKham");
+				System.out.println("Nhap ngay kham:");
+				String ngayKham = input.nextLine();
+
+				List<NhanVien> lsNhanVien = (List<NhanVien>) Db4oHelper.selectAll(new NhanVien());
+				System.out.println("PhieuKham nay la cua NhanVien :");
+				for (int i = 0; i < lsNhanVien.size(); i++) {
+					System.out.println((i + 1) + "." + lsNhanVien.get(i).getTen());
+				}
+				int noNhanVien = 0;
+				String temp = input.nextLine();
+				try {
+					noNhanVien = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				NhanVien nv = lsNhanVien.get(noNhanVien - 1);
+
+				List<BenhNhan> lsBenhNhan = (List<BenhNhan>) Db4oHelper.selectAll(new BenhNhan());
+				System.out.println("PhieuKham nay la cua BenhNhan :");
+				for (int i = 0; i < lsBenhNhan.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhNhan.get(i).getTen());
+				}
+				int noBenhNhan = 0;
+				temp = input.nextLine();
+				try {
+					noBenhNhan = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				BenhNhan bn = lsBenhNhan.get(noBenhNhan - 1);
+
+				System.out.println("Nhap vi tri kham:");
+				String viTriKham = input.nextLine();
+				System.out.println("Nhap noi dung kham:");
+				String noiDungKham = input.nextLine();
+				System.out.println("Nhap chi phi kham:");
+				String chiPhi = input.nextLine();
+
+				PhieuKham phieuKham = new PhieuKham();
+				phieuKham.setNgayKham(sdf.parse(ngayKham));
+				phieuKham.setNhanVien(nv);
+				phieuKham.setBenhNhan(bn);
+				phieuKham.setViTriKham(viTriKham);
+				phieuKham.setNoiDungKham(noiDungKham);
+				phieuKham.setChiPhiKham(new BigDecimal(chiPhi));
+
+				Db4oHelper.insert(phieuKham);
+			} else if ("3".equalsIgnoreCase(chon)) {
+				List<PhieuKham> lsPhieuKham = (List<PhieuKham>) Db4oHelper.selectAll(new PhieuKham());
+				System.out.println("Chon PhieuKham can xoa:");
+				for (int i = 0; i < lsPhieuKham.size(); i++) {
+					System.out.println((i + 1) + "." + lsPhieuKham.get(i));
+				}
+				int PhieuKham = 0;
+				String temp = input.nextLine();
+				try {
+					PhieuKham = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					break;
+				}
+				Db4oHelper.delete(lsPhieuKham.get(PhieuKham - 1));
+			} else if ("4".equalsIgnoreCase(chon)) {
+				break;
+			} else {
+				System.out.println("Du lieu khong hop le");
+			}
+		}
+
+	}
+
+	public static void duLieuDonThuoc() throws ParseException {
+		while (true) {
+			System.out.println("==========DonThuoc==========");
+			System.out.println("1.Liet ke danh sach DonThuoc");
+			System.out.println("2.Them moi DonThuoc");
+			System.out.println("3.Xoa du lieu DonThuoc");
+			System.out.println("4.Exit");
+			System.out.println("==========DonThuoc==========");
+			String chon = input.nextLine();
+			if ("1".equalsIgnoreCase(chon)) {
+				List<DonThuoc> lsDonThuoc = (List<DonThuoc>) Db4oHelper.selectAll(new DonThuoc());
+				System.out.println("Danh sach DonThuoc:");
+				for (int i = 0; i < lsDonThuoc.size(); i++) {
+					System.out.println((i + 1) + "." + lsDonThuoc.get(i));
+				}
+			} else if ("2".equalsIgnoreCase(chon)) {
+				System.out.println("Nhap du lieu DonThuoc");
+
+				List<NhanVien> lsNhanVien = (List<NhanVien>) Db4oHelper.selectAll(new NhanVien());
+				System.out.println("NhanVien :");
+				for (int i = 0; i < lsNhanVien.size(); i++) {
+					System.out.println((i + 1) + "." + lsNhanVien.get(i).getTen());
+				}
+				int noNhanVien = 0;
+				String temp = input.nextLine();
+				try {
+					noNhanVien = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				NhanVien nv = lsNhanVien.get(noNhanVien - 1);
+
+				List<BenhNhan> lsBenhNhan = (List<BenhNhan>) Db4oHelper.selectAll(new BenhNhan());
+				System.out.println("BenhNhan :");
+				for (int i = 0; i < lsBenhNhan.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhNhan.get(i).getTen());
+				}
+				int noBenhNhan = 0;
+				temp = input.nextLine();
+				try {
+					noBenhNhan = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				BenhNhan bn = lsBenhNhan.get(noBenhNhan - 1);
+
+				List<Benh> lsBenh = (List<Benh>) Db4oHelper.selectAll(new Benh());
+				System.out.println("Benh :");
+				for (int i = 0; i < lsBenh.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenh.get(i).getTenBenh());
+				}
+				int noBenh = 0;
+				temp = input.nextLine();
+				try {
+					noBenh = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				Benh benh = lsBenh.get(noBenh - 1);
+
+				List<Thuoc> lsThuoc = (List<Thuoc>) Db4oHelper.selectAll(new Thuoc());
+				System.out.println("Thuoc :");
+				for (int i = 0; i < lsThuoc.size(); i++) {
+					System.out.println((i + 1) + "." + lsThuoc.get(i).getTenThuoc());
+				}
+				int noThuoc = 0;
+				temp = input.nextLine();
+				try {
+					noThuoc = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				Thuoc thuoc = lsThuoc.get(noThuoc - 1);
+
+				List<PhieuKham> lsPhieuKham = (List<PhieuKham>) Db4oHelper.selectAll(new PhieuKham());
+				System.out.println("DonPhieuKham nay la cua PhieuKham :");
+				for (int i = 0; i < lsPhieuKham.size(); i++) {
+					System.out.println((i + 1) + "." + lsPhieuKham.get(i));
+				}
+				int noPhieuKham = 0;
+				temp = input.nextLine();
+				try {
+					noPhieuKham = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				PhieuKham PhieuKham = lsPhieuKham.get(noPhieuKham - 1);
+
+				System.out.println("Nhap so luong thuoc:");
+				String soLuong = input.nextLine();
+				System.out.println("Nhap lieu dung:");
+				String lieuDung = input.nextLine();
+
+				DonThuoc donThuoc = new DonThuoc();
+				donThuoc.setBenh(benh);
+				donThuoc.setBenhNhan(bn);
+				donThuoc.setKhamBenh(PhieuKham);
+				donThuoc.setLieuDung(lieuDung);
+				donThuoc.setNhanVien(nv);
+				donThuoc.setSoLuong(Integer.parseInt(soLuong));
+				donThuoc.setThuoc(thuoc);
+				Db4oHelper.insert(donThuoc);
+			} else if ("3".equalsIgnoreCase(chon)) {
+				List<DonThuoc> lsDonThuoc = (List<DonThuoc>) Db4oHelper.selectAll(new DonThuoc());
+				System.out.println("Chon DonThuoc can xoa:");
+				for (int i = 0; i < lsDonThuoc.size(); i++) {
+					System.out.println((i + 1) + "." + lsDonThuoc.get(i));
+				}
+				int DonThuoc = 0;
+				String temp = input.nextLine();
+				try {
+					DonThuoc = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					break;
+				}
+				Db4oHelper.delete(lsDonThuoc.get(DonThuoc - 1));
+			} else if ("4".equalsIgnoreCase(chon)) {
+				break;
+			} else {
+				System.out.println("Du lieu khong hop le");
+			}
+		}
+
+	}
+
+	public static void duLieuBenhAn() throws ParseException {
+		while (true) {
+			System.out.println("==========BenhAn==========");
+			System.out.println("1.Liet ke danh sach BenhAn");
+			System.out.println("2.Them moi BenhAn");
+			System.out.println("3.Xoa du lieu BenhAn");
+			System.out.println("4.Exit");
+			System.out.println("==========BenhAn==========");
+			String chon = input.nextLine();
+			if ("1".equalsIgnoreCase(chon)) {
+				List<BenhAn> lsBenhAn = (List<BenhAn>) Db4oHelper.selectAll(new BenhAn());
+				System.out.println("Danh sach BenhAn:");
+				for (int i = 0; i < lsBenhAn.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhAn.get(i));
+				}
+			} else if ("2".equalsIgnoreCase(chon)) {
+				System.out.println("Nhap du lieu BenhAn");
+
+				List<DonThuoc> lsDonThuoc = (List<DonThuoc>) Db4oHelper.selectAll(new DonThuoc());
+				System.out.println("DonThuoc :");
+				for (int i = 0; i < lsDonThuoc.size(); i++) {
+					System.out.println((i + 1) + "." + lsDonThuoc.get(i));
+				}
+				int noDonThuoc = 0;
+				String temp = input.nextLine();
+				try {
+					noDonThuoc = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				DonThuoc donThuoc = lsDonThuoc.get(noDonThuoc - 1);
+
+				List<NhanVien> lsNhanVien = (List<NhanVien>) Db4oHelper.selectAll(new NhanVien());
+				System.out.println("NhanVien :");
+				for (int i = 0; i < lsNhanVien.size(); i++) {
+					System.out.println((i + 1) + "." + lsNhanVien.get(i).getTen());
+				}
+				int noNhanVien = 0;
+				temp = input.nextLine();
+				try {
+					noNhanVien = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				NhanVien nv = lsNhanVien.get(noNhanVien - 1);
+
+				List<BenhNhan> lsBenhNhan = (List<BenhNhan>) Db4oHelper.selectAll(new BenhNhan());
+				System.out.println("BenhNhan :");
+				for (int i = 0; i < lsBenhNhan.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhNhan.get(i).getTen());
+				}
+				int noBenhNhan = 0;
+				temp = input.nextLine();
+				try {
+					noBenhNhan = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				BenhNhan bn = lsBenhNhan.get(noBenhNhan - 1);
+
+				List<Benh> lsBenh = (List<Benh>) Db4oHelper.selectAll(new Benh());
+				System.out.println("Benh :");
+				for (int i = 0; i < lsBenh.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenh.get(i).getTenBenh());
+				}
+				int noBenh = 0;
+				temp = input.nextLine();
+				try {
+					noBenh = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				Benh benh = lsBenh.get(noBenh - 1);
+
+				List<NoiDieuTri> lsNoiDieuTri = (List<NoiDieuTri>) Db4oHelper.selectAll(new NoiDieuTri());
+				System.out.println("NoiDieuTri :");
+				for (int i = 0; i < lsNoiDieuTri.size(); i++) {
+					System.out.println((i + 1) + "." + lsNoiDieuTri.get(i).getTenNoiDieuTri());
+				}
+				int noNoiDieuTri = 0;
+				temp = input.nextLine();
+				try {
+					noNoiDieuTri = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				NoiDieuTri noiDieuTri = lsNoiDieuTri.get(noNoiDieuTri - 1);
+
+				System.out.println("Nhap ngay vao:");
+				String ngayVao = input.nextLine();
+				System.out.println("Nhap ngay ra:");
+				String ngayRa = input.nextLine();
+				System.out.println("Nhap tinh trang ra:");
+				String tinhTrangRa = input.nextLine();
+
+				BenhAn benhAn = new BenhAn();
+				benhAn.setBenh(benh);
+				benhAn.setBenhNhan(bn);
+				benhAn.setDonThuoc(donThuoc);
+				benhAn.setNgayRa(sdf.parse(ngayRa));
+				benhAn.setNgayVao(sdf.parse(ngayVao));
+				benhAn.setNhanVien(nv);
+				benhAn.setNoiDieuTri(noiDieuTri);
+				benhAn.setTinhTrangRa(tinhTrangRa);
+
+				Db4oHelper.insert(benhAn);
+			} else if ("3".equalsIgnoreCase(chon)) {
+				List<BenhAn> lsBenhAn = (List<BenhAn>) Db4oHelper.selectAll(new BenhAn());
+				System.out.println("Chon BenhAn can xoa:");
+				for (int i = 0; i < lsBenhAn.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhAn.get(i));
+				}
+				int BenhAn = 0;
+				String temp = input.nextLine();
+				try {
+					BenhAn = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					break;
+				}
+				Db4oHelper.delete(lsBenhAn.get(BenhAn - 1));
+			} else if ("4".equalsIgnoreCase(chon)) {
+				break;
+			} else {
+				System.out.println("Du lieu khong hop le");
+			}
+		}
+
+	}
 
 }

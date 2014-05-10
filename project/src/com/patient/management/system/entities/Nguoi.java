@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Nguoi {
 	/** The ho benh nhan. */
-	private String ho;
+	protected String ho;
 	
 	/** The ten benh nhan. */
-	private String ten;
+	protected String ten;
 	
 	/** The ngay sinh. */
-	private Date ngaySinh;
+	protected Date ngaySinh;
 	
 	/** The gioi tinh. */
-	private int gioiTinh;
+	protected int gioiTinh;
 	
-	private String diaChi;
+	protected String diaChi;
 	
 	/** The so dien thoai. */
-	private String soDienThoai;
+	protected String soDienThoai;
 
 	public String getHo() {
 		return ho;

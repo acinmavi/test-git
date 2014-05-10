@@ -43,8 +43,11 @@ public class NhanVien extends Nguoi {
 
 	@Override
 	public String toString() {
-		return super.toString() + "NhanVien [khoa=" + khoa + ", chuyenMon="
-				+ chuyenMon + ", chucVu=" + chucVu + "]";
+		return "NhanVien [khoa=" + khoa + ", chuyenMon=" + chuyenMon + ", chucVu=" + chucVu + ", ho=" + ho + ", ten="
+				+ ten + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", soDienThoai="
+				+ soDienThoai + "]";
 	}
+
+	
 
 }
