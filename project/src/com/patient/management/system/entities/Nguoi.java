@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Nguoi {
-	protected SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	/** The ho benh nhan. */
 	protected String ho;
 	
@@ -22,6 +21,8 @@ public class Nguoi {
 	/** The so dien thoai. */
 	protected String soDienThoai;
 
+	
+	
 	public String getHo() {
 		return ho;
 	}
@@ -72,7 +73,7 @@ public class Nguoi {
 
 	@Override
 	public String toString() {
-		return "Nguoi [ho=" + ho + ", ten=" + ten + ", ngaySinh=" + (ngaySinh!=null?sdf.format(ngaySinh):ngaySinh)
+		return "Nguoi [ho=" + ho + ", ten=" + ten + ", ngaySinh=" + ngaySinh
 				+ ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi
 				+ ", soDienThoai=" + soDienThoai + "]";
 	}

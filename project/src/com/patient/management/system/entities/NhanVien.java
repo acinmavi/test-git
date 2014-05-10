@@ -44,7 +44,7 @@ public class NhanVien extends Nguoi {
 	@Override
 	public String toString() {
 		return "NhanVien [khoa=" + khoa + ", chuyenMon=" + chuyenMon + ", chucVu=" + chucVu + ", ho=" + ho + ", ten="
-				+ ten + ", ngaySinh=" + (ngaySinh!=null?sdf.format(ngaySinh):ngaySinh) + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", soDienThoai="
+				+ ten + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", soDienThoai="
 				+ soDienThoai + "]";
 	}
 

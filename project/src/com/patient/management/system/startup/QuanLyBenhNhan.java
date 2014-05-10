@@ -15,6 +15,7 @@ import com.patient.management.system.entities.Benh;
 import com.patient.management.system.entities.BenhAn;
 import com.patient.management.system.entities.BenhNhan;
 import com.patient.management.system.entities.DonThuoc;
+import com.patient.management.system.entities.Nguoi;
 import com.patient.management.system.entities.NhanVien;
 import com.patient.management.system.entities.NoiDieuTri;
 import com.patient.management.system.entities.PhieuKham;
@@ -135,7 +136,7 @@ public class QuanLyBenhNhan {
 			System.out.println("==========BenhNhan==========");
 			String chon = input.nextLine();
 			if ("1".equalsIgnoreCase(chon)) {
-//				List<BenhNhan> lsBenhNhan = Db4oHelper.getDb().queryByExample(new BenhNhan());
+				List<BenhNhan> lsBenhNhan2 = Db4oHelper.getDb().queryByExample(new Nguoi());
 				List<BenhNhan> lsBenhNhan = (List<BenhNhan>) Db4oHelper.selectAll(new BenhNhan());
 				System.out.println("Danh sach BenhNhan:");
 				for (int i = 0; i < lsBenhNhan.size(); i++) {
