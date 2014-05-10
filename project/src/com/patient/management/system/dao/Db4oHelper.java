@@ -40,14 +40,6 @@ public class Db4oHelper {
 	public static boolean insert(Object entity) {
 		boolean isSuccess = true;
 		try {
-			// List<Object> ls = selectAll(entity);
-			// if (ls.size() > 0) {
-			// // xoa tat,insert cai moi nhat
-			// for (Object Object : ls) {
-			// System.out.println("Trung du lieu,xoa : " + Object);
-			// delete(Object);
-			// }
-			// }
 			getDb().store(entity);
 			getDb().commit();
 		} catch (Exception e) {

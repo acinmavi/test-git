@@ -1,9 +1,13 @@
 package com.patient.management.system.startup;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.patient.management.system.dao.Db4oHelper;
@@ -18,7 +22,7 @@ import com.patient.management.system.entities.Thuoc;
 
 public class QuanLyBenhNhan {
 	static Scanner input = new Scanner(System.in);
-	static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
 	 * @param args
@@ -35,6 +39,8 @@ public class QuanLyBenhNhan {
 				System.out.println("6.Du lieu phieu kham");
 				System.out.println("7.Du lieu don thuoc");
 				System.out.println("8.Du lieu benh an");
+				System.out.println("9.Khoi tao du lieu");
+				System.out.println("10.Xoa tat ca du lieu");
 				System.out.println("0.Exit");
 
 				String in = input.nextLine();
@@ -57,6 +63,10 @@ public class QuanLyBenhNhan {
 				} else if ("0".equalsIgnoreCase(in)) {
 					System.out.println("Exiting....");
 					System.exit(0);
+				} else if ("9".equalsIgnoreCase(in)) {
+					khoiTaoDuLieu();
+				} else if ("10".equalsIgnoreCase(in)) {
+					Db4oHelper.deleteDb();
 				} else {
 					System.out.println("Du lieu khong hop le.");
 				}
@@ -125,6 +135,7 @@ public class QuanLyBenhNhan {
 			System.out.println("==========BenhNhan==========");
 			String chon = input.nextLine();
 			if ("1".equalsIgnoreCase(chon)) {
+//				List<BenhNhan> lsBenhNhan = Db4oHelper.getDb().queryByExample(new BenhNhan());
 				List<BenhNhan> lsBenhNhan = (List<BenhNhan>) Db4oHelper.selectAll(new BenhNhan());
 				System.out.println("Danh sach BenhNhan:");
 				for (int i = 0; i < lsBenhNhan.size(); i++) {
@@ -697,7 +708,87 @@ public class QuanLyBenhNhan {
 				System.out.println("Du lieu khong hop le");
 			}
 		}
-
 	}
 
+	public static void khoiTaoDuLieu() {
+		try {
+			char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+			for (char c : alphabet) {
+				Thuoc thuoc = new Thuoc();
+				thuoc.setTenThuoc("Thuoc " + String.valueOf(c).toUpperCase());
+				thuoc.setDonGia(new BigDecimal(randInt(1000, 100000)));
+				System.out.println("Khoi tao : " + thuoc);
+				Db4oHelper.insert(thuoc);
+
+				Benh benh = new Benh();
+				benh.setTenBenh("Benh " + String.valueOf(c).toUpperCase());
+				System.out.println("Khoi tao : " + benh);
+				Db4oHelper.insert(benh);
+
+				BenhNhan benhNhan = new BenhNhan();
+				benhNhan.setDiaChi("Dia Chi " + String.valueOf(c).toUpperCase());
+				benhNhan.setGioiTinh(randInt(0, 1));
+				benhNhan.setHo("Nguyen Van");
+				benhNhan.setTen(String.valueOf(c).toUpperCase());
+				benhNhan.setNgaySinh(getRandomTimeBetweenTwoDates());
+				benhNhan.setSoDienThoai(makeRandomPhoneNumber());
+				System.out.println("Khoi tao : " + benhNhan);
+				Db4oHelper.insert(benhNhan);
+
+				NhanVien nhanVien = new NhanVien();
+				nhanVien.setDiaChi("Dia Chi " + String.valueOf(c).toUpperCase());
+				nhanVien.setGioiTinh(randInt(0, 1));
+				nhanVien.setHo("Nguyen Van");
+				nhanVien.setTen(String.valueOf(c).toUpperCase());
+				nhanVien.setNgaySinh(getRandomTimeBetweenTwoDates());
+				nhanVien.setSoDienThoai(makeRandomPhoneNumber());
+				nhanVien.setKhoa("Khoa " + String.valueOf(c).toUpperCase());
+				nhanVien.setChucVu("Chuc " + String.valueOf(c).toUpperCase());
+				nhanVien.setChuyenMon("Chuyen Mon " + String.valueOf(c).toUpperCase());
+				System.out.println("Khoi tao : " + nhanVien);
+				Db4oHelper.insert(nhanVien);
+
+				NoiDieuTri noiDieuTri = new NoiDieuTri();
+				noiDieuTri.setTenNoiDieuTri("Noi Dieu Tri " + String.valueOf(c).toUpperCase());
+				noiDieuTri.setDonGia(randInt(100000, 1000000) + "/ngay");
+				System.out.println("Khoi tao : " + noiDieuTri);
+				Db4oHelper.insert(noiDieuTri);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static int randInt(int min, int max) {
+
+		// Usually this should be a field rather than a method variable so
+		// that it is not re-seeded every call.
+		Random rand = new Random();
+
+		// nextInt is normally exclusive of the top value,
+		// so add 1 to make it inclusive
+		int randomNum = rand.nextInt((max - min) + 1) + min;
+
+		return randomNum;
+	}
+
+	public static Date getRandomTimeBetweenTwoDates() {
+		long beginTime = Timestamp.valueOf("1989-01-01 00:00:00").getTime();
+		long endTime = Timestamp.valueOf("2013-12-31 00:58:00").getTime();
+		long diff = endTime - beginTime + 1;
+		return new Date(beginTime + (long) (Math.random() * diff));
+	}
+
+	public static String makeRandomPhoneNumber() {
+		Random rand = new Random();
+		int num1 = (rand.nextInt(7) + 1) * 100 + (rand.nextInt(8) * 10) + rand.nextInt(8);
+		int num2 = rand.nextInt(743);
+		int num3 = rand.nextInt(10000);
+
+		DecimalFormat df3 = new DecimalFormat("000"); // 3 zeros
+		DecimalFormat df4 = new DecimalFormat("0000"); // 4 zeros
+
+		String phoneNumber = df3.format(num1) + "-" + df3.format(num2) + "-" + df4.format(num3);
+		return phoneNumber;
+	}
 }
