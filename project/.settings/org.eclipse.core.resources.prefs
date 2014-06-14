@@ -1,11 +1,4 @@
-#Wed Apr 30 15:56:59 GMT+07:00 2014
 eclipse.preferences.version=1
-encoding//src/abc/Benh.java=UTF-8
-encoding//src/abc/BenhNhan.java=UTF-8
-encoding//src/abc/DonThuoc.java=UTF-8
-encoding//src/abc/NhanVien.java=UTF-8
-encoding//src/abc/NoiDieuTri.java=UTF-8
-encoding//src/abc/PhieuKham.java=UTF-8
 encoding//src/com/patient/management/system/entities/Benh.java=UTF-8
 encoding//src/com/patient/management/system/entities/BenhAn.java=UTF-8
 encoding//src/com/patient/management/system/entities/BenhNhan.java=UTF-8

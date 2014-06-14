@@ -1,35 +1,37 @@
 package com.patient.management.system.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
- * * The Class BenhAn.
- * Bệnh án
+ * * The Class BenhAn. Bệnh án
+ * 
  * @author dung.nguyen.trung
  */
-public class BenhAn{
-	
+public class BenhAn {
+
 	/** The kham benh. */
-	private DonThuoc donThuoc;
-	
+	private List<DonThuoc> donThuocs;
+
 	/** The nhan vien. */
 	private NhanVien nhanVien;
-	
+
 	/** The benh nhan. */
 	private BenhNhan benhNhan;
-	
+
 	/** The benh. */
-	private Benh benh;
-	
+	private List<Benh> benhs;
+
 	/** The noi dieu tri. */
-	private NoiDieuTri noiDieuTri;
-	
+	private List<NoiDieuTri> noiDieuTris;
+
 	/** The ngay vao. */
 	private Date ngayVao;
-	
+
 	/** The ngay ra. */
 	private Date ngayRa;
-	
+
 	/** The tinh trang ra. */
 	private String tinhTrangRa;
 
@@ -69,44 +71,6 @@ public class BenhAn{
 	 */
 	public void setBenhNhan(BenhNhan benhNhan) {
 		this.benhNhan = benhNhan;
-	}
-
-	/**
-	 * Gets the benh.
-	 * 
-	 * @return the benh
-	 */
-	public Benh getBenh() {
-		return benh;
-	}
-
-	/**
-	 * Sets the benh.
-	 * 
-	 * @param benh
-	 *            the new benh
-	 */
-	public void setBenh(Benh benh) {
-		this.benh = benh;
-	}
-
-	/**
-	 * Gets the noi dieu tri.
-	 * 
-	 * @return the noi dieu tri
-	 */
-	public NoiDieuTri getNoiDieuTri() {
-		return noiDieuTri;
-	}
-
-	/**
-	 * Sets the noi dieu tri.
-	 * 
-	 * @param noiDieuTri
-	 *            the new noi dieu tri
-	 */
-	public void setNoiDieuTri(NoiDieuTri noiDieuTri) {
-		this.noiDieuTri = noiDieuTri;
 	}
 
 	/**
@@ -166,23 +130,56 @@ public class BenhAn{
 		this.tinhTrangRa = tinhTrangRa;
 	}
 
-
-	public DonThuoc getDonThuoc() {
-		return donThuoc;
+	public List<DonThuoc> getDonThuocs() {
+		return donThuocs;
 	}
 
-	public void setDonThuoc(DonThuoc donThuoc) {
-		this.donThuoc = donThuoc;
+	public void setDonThuocs(List<DonThuoc> donThuocs) {
+		this.donThuocs = donThuocs;
+	}
+
+	public void themDonThuoc(DonThuoc donThuoc) {
+		if (donThuocs == null) {
+			donThuocs = new ArrayList<DonThuoc>();
+		}
+		this.donThuocs.add(donThuoc);
+	}
+
+	public List<Benh> getBenhs() {
+		return benhs;
+	}
+
+	public void setBenhs(List<Benh> benhs) {
+		this.benhs = benhs;
+	}
+
+	public void themBenh(Benh benh) {
+		if (benhs == null) {
+			benhs = new ArrayList<Benh>();
+		}
+		this.benhs.add(benh);
+	}
+
+	public List<NoiDieuTri> getNoiDieuTris() {
+		return noiDieuTris;
+	}
+
+	public void setNoiDieuTris(List<NoiDieuTri> noiDieuTris) {
+		this.noiDieuTris = noiDieuTris;
+	}
+
+	public void themNoiDieuTri(NoiDieuTri noiDieuTri) {
+		if (noiDieuTris == null) {
+			noiDieuTris = new ArrayList<NoiDieuTri>();
+		}
+		this.noiDieuTris.add(noiDieuTri);
 	}
 
 	@Override
 	public String toString() {
-		return "BenhAn [donThuoc=" + donThuoc + ", nhanVien=" + nhanVien
-				+ ", benhNhan=" + benhNhan + ", benh=" + benh + ", noiDieuTri="
-				+ noiDieuTri + ", ngayVao=" + ngayVao + ", ngayRa=" + ngayRa
+		return "BenhAn [donThuocs=" + donThuocs + ", nhanVien=" + nhanVien + ", benhNhan=" + benhNhan + ", benhs="
+				+ benhs + ", noiDieuTris=" + noiDieuTris + ", ngayVao=" + ngayVao + ", ngayRa=" + ngayRa
 				+ ", tinhTrangRa=" + tinhTrangRa + "]";
 	}
-
-	
 
 }

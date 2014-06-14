@@ -678,13 +678,13 @@ public class QuanLyBenhNhan {
 				String tinhTrangRa = input.nextLine();
 
 				BenhAn benhAn = new BenhAn();
-				benhAn.setBenh(benh);
+				benhAn.themBenh(benh);
 				benhAn.setBenhNhan(bn);
-				benhAn.setDonThuoc(donThuoc);
+				benhAn.themDonThuoc(donThuoc);
 				benhAn.setNgayRa(sdf.parse(ngayRa));
 				benhAn.setNgayVao(sdf.parse(ngayVao));
 				benhAn.setNhanVien(nv);
-				benhAn.setNoiDieuTri(noiDieuTri);
+				benhAn.themNoiDieuTri(noiDieuTri);
 				benhAn.setTinhTrangRa(tinhTrangRa);
 
 				Db4oHelper.insert(benhAn);
