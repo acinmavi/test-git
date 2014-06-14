@@ -7,6 +7,11 @@ package com.patient.management.system.entities;
  * @author dung.nguyen.trung
  */
 public class BenhNhan extends Nguoi{
-	
+
+	@Override
+	public String toString() {
+		return "BenhNhan [ho=" + ho + ", ten=" + ten + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh
+				+ ", diaChi=" + diaChi + ", soDienThoai=" + soDienThoai + "]";
+	}
 
 }

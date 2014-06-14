@@ -1,5 +1,6 @@
 package com.patient.management.system.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -177,9 +178,30 @@ public class BenhAn {
 
 	@Override
 	public String toString() {
-		return "BenhAn [donThuocs=" + donThuocs + ", nhanVien=" + nhanVien + ", benhNhan=" + benhNhan + ", benhs="
-				+ benhs + ", noiDieuTris=" + noiDieuTris + ", ngayVao=" + ngayVao + ", ngayRa=" + ngayRa
-				+ ", tinhTrangRa=" + tinhTrangRa + "]";
+		StringBuilder builder = new StringBuilder();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		builder.append("\r\n");
+		builder.append("\r\n");
+		builder.append("BENH AN : ");
+		builder.append("\r\n");
+		builder.append("Don thuoc : "+ donThuocs);
+		builder.append("\r\n");
+		builder.append("Nhan Vien : "+ nhanVien);
+		builder.append("\r\n");
+		builder.append("Benh Nhan : "+ benhNhan);
+		builder.append("\r\n");
+		builder.append("Benh : "+ benhs);
+		builder.append("\r\n");
+		builder.append("Noi Dieu Tri : "+ noiDieuTris);
+		builder.append("\r\n");
+		builder.append("Ngay vao : "+ sdf.format(ngayVao));
+		builder.append("\r\n");
+		builder.append("Ngay ra : "+ sdf.format(ngayRa));
+		builder.append("\r\n");
+		builder.append("Tinh Trang ra : "+ tinhTrangRa);
+		builder.append("\r\n");
+		builder.append("\r\n");
+		return builder.toString();
 	}
 
 }

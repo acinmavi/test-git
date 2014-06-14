@@ -582,8 +582,9 @@ public class QuanLyBenhNhan {
 			System.out.println("==========BenhAn==========");
 			System.out.println("1.Liet ke danh sach BenhAn");
 			System.out.println("2.Them moi BenhAn");
-			System.out.println("3.Xoa du lieu BenhAn");
-			System.out.println("4.Exit");
+			System.out.println("3.Sua BenhAn");
+			System.out.println("4.Xoa du lieu BenhAn");
+			System.out.println("5.Exit");
 			System.out.println("==========BenhAn==========");
 			String chon = input.nextLine();
 			if ("1".equalsIgnoreCase(chon)) {
@@ -690,6 +691,70 @@ public class QuanLyBenhNhan {
 				Db4oHelper.insert(benhAn);
 			} else if ("3".equalsIgnoreCase(chon)) {
 				List<BenhAn> lsBenhAn = (List<BenhAn>) Db4oHelper.selectAll(new BenhAn());
+				System.out.println("Danh sach BenhAn:");
+				for (int i = 0; i < lsBenhAn.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenhAn.get(i));
+				}
+				if(lsBenhAn.size() <= 0){
+					System.out.println("Ko co benh an de sua");
+					return;
+				}
+				System.out.println("Chon BenhAn can sua : ");
+				int benhAnSua =  Integer.parseInt(input.nextLine());
+				BenhAn benhAn = lsBenhAn.get(benhAnSua-1);
+				
+				List<DonThuoc> lsDonThuoc = (List<DonThuoc>) Db4oHelper.selectAll(new DonThuoc());
+				System.out.println("Them Don Thuoc :");
+				for (int i = 0; i < lsDonThuoc.size(); i++) {
+					System.out.println((i + 1) + "." + lsDonThuoc.get(i));
+				}
+				int noDonThuoc = 0;
+				String temp = input.nextLine();
+				try {
+					noDonThuoc = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				DonThuoc donThuoc = lsDonThuoc.get(noDonThuoc - 1);
+
+				List<Benh> lsBenh = (List<Benh>) Db4oHelper.selectAll(new Benh());
+				System.out.println("Them Benh :");
+				for (int i = 0; i < lsBenh.size(); i++) {
+					System.out.println((i + 1) + "." + lsBenh.get(i).getTenBenh());
+				}
+				int noBenh = 0;
+				temp = input.nextLine();
+				try {
+					noBenh = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				Benh benh = lsBenh.get(noBenh - 1);
+
+				List<NoiDieuTri> lsNoiDieuTri = (List<NoiDieuTri>) Db4oHelper.selectAll(new NoiDieuTri());
+				System.out.println("Them NoiDieuTri :");
+				for (int i = 0; i < lsNoiDieuTri.size(); i++) {
+					System.out.println((i + 1) + "." + lsNoiDieuTri.get(i).getTenNoiDieuTri());
+				}
+				int noNoiDieuTri = 0;
+				temp = input.nextLine();
+				try {
+					noNoiDieuTri = Integer.parseInt(temp);
+				} catch (NumberFormatException e) {
+					System.out.println("Du lieu khong hop le.");
+					return;
+				}
+				NoiDieuTri noiDieuTri = lsNoiDieuTri.get(noNoiDieuTri - 1);
+
+				benhAn.themBenh(benh);
+				benhAn.themDonThuoc(donThuoc);
+				benhAn.themNoiDieuTri(noiDieuTri);
+				Db4oHelper.update(benhAn);
+				
+			} else if ("4".equalsIgnoreCase(chon)) {
+				List<BenhAn> lsBenhAn = (List<BenhAn>) Db4oHelper.selectAll(new BenhAn());
 				System.out.println("Chon BenhAn can xoa:");
 				for (int i = 0; i < lsBenhAn.size(); i++) {
 					System.out.println((i + 1) + "." + lsBenhAn.get(i));
@@ -703,7 +768,7 @@ public class QuanLyBenhNhan {
 					break;
 				}
 				Db4oHelper.delete(lsBenhAn.get(BenhAn - 1));
-			} else if ("4".equalsIgnoreCase(chon)) {
+			} else if ("5".equalsIgnoreCase(chon)) {
 				break;
 			} else {
 				System.out.println("Du lieu khong hop le");
